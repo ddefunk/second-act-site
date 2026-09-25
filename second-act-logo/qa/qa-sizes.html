@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>QA: small sizes</title>
+<style>
+@font-face{font-family:Montserrat;src:url(../fonts/Montserrat[wght].ttf)}
+body{margin:0;padding:28px;background:#fff;font:500 11px Montserrat;letter-spacing:.14em;color:#884850;text-transform:uppercase}
+.row{display:flex;gap:36px;align-items:center;margin-bottom:26px}
+.av{width:110px;height:110px;border-radius:50%;overflow:hidden}
+.av img{width:110px;height:110px;display:block}
+.pan{padding:14px;display:flex;align-items:center;gap:28px}
+</style>
+<div>110px circular avatars (Instagram file, cropped to a circle in the browser)</div>
+<div class="row" style="margin-top:12px">
+  <div class="av"><img src="../social/instagram/instagram-avatar-320.png"></div>
+  <div class="av"><img src="../social/instagram/instagram-avatar-320-cream.png"></div>
+  <div class="av"><img src="../social/linkedin/linkedin-logo-400.png"></div>
+  <div class="av" style="width:40px;height:40px"><img src="../social/instagram/instagram-avatar-320.png" style="width:40px;height:40px"></div>
+  <span>← 40px, as in comments</span>
+</div>
+<div>Full lockups at 120px wide · monogram at 24px</div>
+<div class="row" style="margin-top:12px">
+  <div class="pan" style="background:#F5F1E8"><img src="../logo/svg/sa-horizontal-burgundy.svg" style="width:120px"><img src="../logo/svg/sa-stacked-burgundy.svg" style="width:120px"><img src="../logo/svg/sa-monogram-burgundy.svg" style="height:24px"></div>
+  <div class="pan" style="background:#6F1F2A"><img src="../logo/svg/sa-horizontal-white.svg" style="width:120px"><img src="../logo/svg/sa-stacked-white.svg" style="width:120px"><img src="../logo/svg/sa-monogram-white.svg" style="height:24px"></div>
+  <div class="pan" style="background:#F5F1E8"><img src="../logo/svg/sa-studio-burgundy.svg" style="width:160px"><span>studio · 160px</span></div>
+</div>

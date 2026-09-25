@@ -218,6 +218,14 @@ def rect(x, y, w, h):
     return f"M{_n(x)},{_n(y)}h{_n(w)}v{_n(h)}h{_n(-w)}Z"
 
 
+def path_el(fill, d, role):
+    """<path>; roles ending in '-eo' use the even-odd rule (for shapes
+    whose holes are drawn in the same direction). Never used for text,
+    because variable-font glyphs may contain overlapping contours."""
+    eo = ' fill-rule="evenodd"' if role.endswith("-eo") else ""
+    return f'<path fill="{fill}"{eo} d="{d}"/>'
+
+
 class Art:
     """Collects outlined paths plus a parallel live-text version."""
 
@@ -247,13 +255,13 @@ class Art:
                     out.append(run.live(x, y, colours.get(role, colours["fg"])))
                 else:
                     _, d, role = item
-                    out.append(f'<path fill="{colours.get(role, colours["fg"])}" d="{d}"/>')
+                    out.append(path_el(colours.get(role, colours["fg"]), d, role))
         else:
             # merge paths per colour role to keep the file clean
             by_role = {}
             for d, role in self.paths:
                 by_role.setdefault(role, []).append(d)
             for role, ds in by_role.items():
-                out.append(f'<path fill="{colours.get(role, colours["fg"])}" d="{"".join(ds)}"/>')
+                out.append(path_el(colours.get(role, colours["fg"]), "".join(ds), role))
         out.append("</svg>")
         return "\n".join(out) + "\n"
