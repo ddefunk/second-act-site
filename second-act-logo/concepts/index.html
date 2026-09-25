@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Second Act Advisory: logo concepts</title>
+<style>
+@font-face{font-family:"Playfair Display";src:url(../fonts/PlayfairDisplay[wght].ttf)}
+@font-face{font-family:"Playfair Display";font-style:italic;src:url(../fonts/PlayfairDisplay-Italic[wght].ttf)}
+@font-face{font-family:Montserrat;src:url(../fonts/Montserrat[wght].ttf)}
+:root{--burgundy:#6F1F2A;--cream:#F5F1E8;--rose:#884850;--blush:#F8E9E2;--ink:#1F1A1A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--blush);color:var(--ink);font-family:Montserrat,sans-serif}
+header{padding:56px 64px 24px}
+.eyebrow{font:500 12px Montserrat;letter-spacing:.28em;text-transform:uppercase;color:var(--rose)}
+h1{font:500 44px "Playfair Display",serif;color:var(--burgundy);margin:10px 0 8px}
+h1 em{font-style:italic}
+header p{max-width:760px;font-size:14px;line-height:1.7;color:#4a3a3a;margin:0}
+.band{padding:28px 64px 48px}
+.band.dark{background:var(--burgundy)}
+.band h2{font:500 12px Montserrat;letter-spacing:.28em;text-transform:uppercase;color:var(--rose);margin:0 0 20px}
+.band.dark h2{color:#d9b9b6}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.col{background:var(--cream);border-radius:4px;padding:28px 28px 32px;display:flex;flex-direction:column;gap:22px}
+.dark .col{background:var(--burgundy);border:1px solid rgba(245,241,232,.22)}
+.col h3{font:500 26px "Playfair Display",serif;color:var(--burgundy);margin:0}
+.dark .col h3{color:var(--cream)}
+.col h3 small{display:block;font:500 11px Montserrat;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin-bottom:6px}
+.dark .col h3 small{color:#d9b9b6}
+.lbl{font:500 10px Montserrat;letter-spacing:.24em;text-transform:uppercase;color:#9b7f7f;margin-bottom:8px}
+.dark .lbl{color:#cfa9a6}
+.cell{border-top:1px solid rgba(111,31,42,.14);padding-top:14px}
+.dark .cell{border-top-color:rgba(245,241,232,.18)}
+.cell img{display:block;max-width:100%}
+.h img{width:100%}
+.s img{height:230px;margin:0 auto}
+.m img{height:150px}
+.avs{display:flex;gap:22px;align-items:center}
+.av{width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;flex:none}
+.av.bg-b{background:var(--burgundy)} .av.bg-c{background:var(--cream);box-shadow:inset 0 0 0 1px rgba(111,31,42,.18)}
+.dark .av.bg-b{box-shadow:inset 0 0 0 1px rgba(245,241,232,.35)}
+.av img{height:56px}
+.av.arch img{height:78px}
+.av.act img{height:auto;width:84px}
+.note{font-size:12.5px;line-height:1.65;color:#5a4545}
+.dark .note{color:#ead7d3}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Second Act Advisory · Logo exploration · Round 1</div>
+  <h1>Three routes for the <em>II</em></h1>
+  <p>Wordmark in Playfair Display 500 (italic where noted), descriptor in Montserrat 500 tracked caps. All text is outlined in the SVGs. Avatars are shown at true 110px size.</p>
+</header>
+
+<section class="band"><h2>Burgundy on cream</h2><div class="grid" id="light"></div></section>
+<section class="band dark"><h2>Cream on burgundy</h2><div class="grid" id="dark"></div></section>
+
+<script>
+const C = [
+  {k:'a', t:'Editorial monogram', av:'', note:'A drawn Roman numeral with hairline bars joining the stems, beside the name. The quietest route, and the closest cousin to your carousel slides.'},
+  {k:'b', t:'Framed numeral', av:'arch', note:'The II sits inside a hairline arch, like an act marker in a programme or a chapter opener. Name set in spaced serif capitals. The most distinctive avatar.'},
+  {k:'c', t:'Integrated wordmark', av:'act', note:'The II follows an italic “Act”, and its lower bar runs back underneath the word. Reads as “Act II”, the literal meaning of a second act. Cleverest, and so the one to test hardest for clarity.'},
+];
+for (const [id, way, mono, avA, avB] of [
+  ['light','burgundy-on-cream','burgundy','bg-b','bg-c'],
+  ['dark','cream-on-burgundy','cream','bg-c','bg-b']]) {
+  document.getElementById(id).innerHTML = C.map((c,i) => `
+  <div class="col">
+    <h3><small>Concept ${'ABC'[i]}</small>${c.t}</h3>
+    <div class="cell h"><div class="lbl">Primary horizontal</div><img src="svg/concept-${c.k}-horizontal-${way}.svg" alt=""></div>
+    <div class="cell s"><div class="lbl">Stacked</div><img src="svg/concept-${c.k}-stacked-${way}.svg" alt=""></div>
+    <div class="cell m"><div class="lbl">Monogram</div><img src="svg/concept-${c.k}-monogram-${way}.svg" alt=""></div>
+    <div class="cell"><div class="lbl">Avatar at 110px</div><div class="avs">
+      <div class="av ${avA} ${c.av}"><img src="svg/concept-${c.k}-monogram-${avA==='bg-b'?'cream':'burgundy'}.svg" alt=""></div>
+      <div class="av ${avB} ${c.av}"><img src="svg/concept-${c.k}-monogram-${avB==='bg-b'?'cream':'burgundy'}.svg" alt=""></div>
+    </div></div>
+    <p class="note">${c.note}</p>
+  </div>`).join('');
+}
+</script>
+</body>
+</html>
