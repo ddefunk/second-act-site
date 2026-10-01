@@ -157,6 +157,12 @@ function writeIco(pngFiles, outFile) {
     mkdir(P('stationery', 'email-signature'));
     await png(page, cropped, P('stationery', 'email-signature', 'signature-logo.png'), 720, { transparent: false });
   }
+  // Trade mark filing images: JPG on white, as the IPO form expects
+  mkdir(P('trademark'));
+  for (const name of ['stacked-ink', 'stacked-burgundy', 'horizontal-ink', 'horizontal-burgundy', 'monogram-ink']) {
+    const svg = read(P('logo', 'svg', `sa-${name}.svg`));
+    await png(page, svg, P('trademark', `sa-${name}-trademark.jpg`), 1200, { transparent: false, type: 'jpeg' });
+  }
   const sig = read(P('stationery', 'email-signature.svg'));
   await png(page, sig, P('stationery', 'email-signature-600.png'), 600);
 
@@ -171,7 +177,7 @@ function writeIco(pngFiles, outFile) {
     if (e.isDirectory()) walk(f);
     else if (/\.(png|jpg)$/.test(e.name)) pngs.push(path.relative(P('logo'), f));
   });
-  ['logo/png', 'favicon', 'social', 'podcast', 'stationery', 'meeting-backgrounds'].forEach((d) => walk(P(d)));
+  ['logo/png', 'favicon', 'social', 'podcast', 'stationery', 'meeting-backgrounds', 'trademark'].forEach((d) => walk(P(d)));
   const cells = pngs.sort().map((f) => {
     const dark = /-white-|footer-lockup-cream/.test(f);
     return `<figure class="${dark ? 'dk' : ''}"><div><img src="${f}"></div><figcaption>${path.basename(f)}</figcaption></figure>`;

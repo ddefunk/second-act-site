@@ -17,9 +17,10 @@ Every logo file is built from code. The type is Playfair Display and Montserrat,
 | `social/facebook/` | 320 px avatar and the 1640 × 624 cover. |
 | `social/linkedin/` | 400 px logo and the 1128 × 191 banner with the brand line. |
 | `podcast/` | Already Qualified cover at 3000 × 3000, in PNG and JPG. |
-| `meeting-backgrounds/` | Zoom and Teams backgrounds, 1920 × 1080 (PNG and JPG): Second Act Advisory and Already Qualified, each in wine and Library Green (#26473B, a background-only colour). |
+| `meeting-backgrounds/` | Zoom and Teams backgrounds, 1920 × 1080 (PNG and JPG): Second Act Advisory and Already Qualified, each in wine and Library Green (#26473B, a background-only colour), plus two signature-style versions (cream and wine) with your name and title; change the name in `scripts/build_backgrounds.py`. |
 | `stationery/` | A4 letterhead PDF (plus its HTML source), and the 600 px email signature PNG. |
 | `stationery/email-signature/` | Ready-to-paste HTML email signature (open `index.html`, click Copy), its logo PNG and a plain-text version. Fill in the `[EMAIL]`, `[PHONE]` and `[WEBSITE]` placeholders. |
+| `trademark/` | Logo JPGs on white for a UK IPO trade mark application (ink and burgundy). |
 | `brand-guide/` | `index.html` and the 4-page PDF: logo versions, clear space, minimum sizes, colour, type and do's and don'ts. |
 | `source/` | Editable SVGs with live text. You'll need the fonts in `fonts/` installed to see them correctly. |
 | `concepts/` | Round 1 exploration (A, B, C) and trial renders, kept for the record. |
