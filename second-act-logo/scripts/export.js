@@ -19,7 +19,7 @@ const P = (...p) => path.join(ROOT, ...p);
 const mkdir = (d) => fs.mkdirSync(d, { recursive: true });
 
 function svgSize(svg) {
-  const m = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+  const m = svg.match(/viewBox="[\d.-]+ [\d.-]+ ([\d.]+) ([\d.]+)"/);
   return { w: +m[1], h: +m[2] };
 }
 
@@ -144,6 +144,18 @@ function writeIco(pngFiles, outFile) {
     const base = P('meeting-backgrounds', f.replace(/\.svg$/, ''));
     await png(page, svg, base + '.png', 1920, { transparent: false });
     await png(page, svg, base + '.jpg', 1920, { transparent: false, type: 'jpeg' });
+  }
+  // Signature logo: lockup cropped to its ink (minus the built-in clear
+  // space) on white, so it aligns with the text and survives dark mode.
+  {
+    const svg = read(P('logo', 'svg', 'sa-horizontal-burgundy.svg'));
+    const { w, h } = svgSize(svg);
+    const pad = 30.5; // built-in clear space is 34.5; keep 4 units of breathing room
+    const cw = w - pad * 2, ch = h - pad * 2;
+    const cropped = svg.replace(/viewBox="[^"]+" width="[\d.]+" height="[\d.]+"/,
+      `viewBox="${pad} ${pad} ${cw} ${ch}" width="${cw}" height="${ch}"`);
+    mkdir(P('stationery', 'email-signature'));
+    await png(page, cropped, P('stationery', 'email-signature', 'signature-logo.png'), 720, { transparent: false });
   }
   const sig = read(P('stationery', 'email-signature.svg'));
   await png(page, sig, P('stationery', 'email-signature-600.png'), 600);

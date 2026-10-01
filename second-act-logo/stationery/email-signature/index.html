@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email signature</title>
+<style>
+@font-face{font-family:"Playfair Display";src:url(../../fonts/PlayfairDisplay[wght].ttf)}
+@font-face{font-family:Montserrat;src:url(../../fonts/Montserrat[wght].ttf)}
+body{margin:0;background:#F8E9E2;color:#1F1A1A;font:15px/1.6 Montserrat,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:48px 20px 64px}
+.eyebrow{font:500 12px Montserrat,Arial,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:#884850}
+h1{font:500 34px/1.15 "Playfair Display",Georgia,serif;color:#6F1F2A;margin:8px 0 6px}
+.card{background:#fff;border-radius:6px;padding:32px 28px;margin:24px 0 14px;box-shadow:0 0 0 1px #eadfd6}
+button{font:600 13px Montserrat,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;background:#6F1F2A;color:#F5F1E8;border:0;border-radius:4px;padding:13px 22px;cursor:pointer}
+button:focus-visible{outline:3px solid #884850;outline-offset:2px}
+#status{margin-left:12px;font-size:13px;color:#4a6b4d}
+h2{font:500 20px "Playfair Display",Georgia,serif;color:#6F1F2A;margin:34px 0 6px}
+ol{padding-left:20px;margin:6px 0}li{margin-bottom:6px}
+.note{font-size:13px;color:#5a4545}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Second Act Advisory · Email signature</div>
+  <h1>Your signature, ready to paste</h1>
+  <p class="note">The company details are live text, so they still show when an email app blocks images. That matters, because UK law requires them on business emails.</p>
+
+  <div class="card">
+    <!-- SIGNATURE START: everything inside #sig is what gets copied -->
+    <div id="sig">
+<table cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#1F1A1A;">
+  <tr><td style="padding:0 0 14px 0;">
+    <img src="signature-logo.png" width="240" height="67" alt="Second Act Advisory" style="display:block;width:240px;height:67px;border:0;">
+  </td></tr>
+  <tr><td style="padding:0;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:24px;color:#6F1F2A;">Olufunke Adeyinka</td></tr>
+  <tr><td style="padding:2px 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:16px;letter-spacing:2px;text-transform:uppercase;color:#884850;">FOUNDER · SECOND ACT ADVISORY</td></tr>
+  <tr><td style="padding:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#1F1A1A;">
+    <a href="mailto:[EMAIL]" style="color:#1F1A1A;text-decoration:none;">[EMAIL]</a>&nbsp;&nbsp;<span style="color:#884850;">·</span>&nbsp;&nbsp;<a href="tel:[PHONE-DIGITS]" style="color:#1F1A1A;text-decoration:none;">[PHONE]</a>
+  </td></tr>
+  <tr><td style="padding:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#1F1A1A;">
+    <a href="https://[WEBSITE]" style="color:#6F1F2A;text-decoration:none;">[WEBSITE]</a>&nbsp;&nbsp;<span style="color:#884850;">·</span>&nbsp;&nbsp;<a href="https://www.instagram.com/secondactadvisory" style="color:#6F1F2A;text-decoration:none;">Instagram @secondactadvisory</a>
+  </td></tr>
+  <tr><td style="padding:10px 0 14px 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;line-height:20px;color:#6F1F2A;">Build your second act while still thriving in your first.</td></tr>
+  <tr><td style="padding:10px 0 0 0;border-top:1px solid #E5D6D2;font-family:Arial,Helvetica,sans-serif;font-size:10.5px;line-height:15px;color:#6B5A5A;">
+    Second Act Advisory Studio Ltd · Registered in England and Wales · Company No. 17261397<br>
+    Registered office: 26 Ibis Street, Rochester ME1 3ZJ, United Kingdom
+  </td></tr>
+</table>
+    </div>
+    <!-- SIGNATURE END -->
+  </div>
+  <button id="copy" type="button">Copy signature</button><span id="status" role="status"></span>
+
+  <h2>Gmail</h2>
+  <ol>
+    <li>Click <b>Copy signature</b> above.</li>
+    <li>In Gmail, open Settings (the cog) → See all settings → General → Signature → Create new. Paste.</li>
+    <li>The logo won't come across, because Gmail only accepts images from the web. Delete the empty image box, click the image icon in the signature editor, and upload <code>signature-logo.png</code> from this folder. Click the logo and pick Small or Medium, whichever makes it about as wide as your name and title line.</li>
+    <li>Scroll down and click <b>Save changes</b>.</li>
+  </ol>
+
+  <h2>Outlook (Windows, Mac or web)</h2>
+  <ol>
+    <li>Click <b>Copy signature</b>.</li>
+    <li>Open Settings → Mail → Compose and reply (or File → Options → Mail → Signatures on Windows desktop). Add a new signature and paste. The logo comes across with it.</li>
+    <li>Set it as the default for new messages and replies, then save.</li>
+  </ol>
+
+  <h2>Apple Mail</h2>
+  <ol>
+    <li>Click <b>Copy signature</b>.</li>
+    <li>Open Mail → Settings → Signatures, add one with <b>+</b>, untick <b>Always match my default message font</b>, then paste.</li>
+  </ol>
+  <p class="note">If the logo ever shows up very large, set its width to 240 pixels in the app's signature editor.</p>
+</main>
+<script>
+const btn = document.getElementById('copy');
+const status = document.getElementById('status');
+btn.addEventListener('click', async () => {
+  const sig = document.getElementById('sig');
+  try {
+    // Rich copy where the browser allows it
+    const html = sig.innerHTML;
+    await navigator.clipboard.write([new ClipboardItem({
+      'text/html': new Blob([html], { type: 'text/html' }),
+      'text/plain': new Blob([sig.innerText], { type: 'text/plain' }),
+    })]);
+  } catch {
+    // Fallback for pages opened straight from a folder
+    const range = document.createRange();
+    range.selectNodeContents(sig);
+    const sel = window.getSelection();
+    sel.removeAllRanges(); sel.addRange(range);
+    document.execCommand('copy');
+    sel.removeAllRanges();
+  }
+  status.textContent = 'Copied. Now paste it into your email settings.';
+});
+</script>
+</body>
+</html>
