@@ -17,6 +17,7 @@ Every logo file is built from code. The type is Playfair Display and Montserrat,
 | `social/facebook/` | 320 px avatar and the 1640 × 624 cover. |
 | `social/linkedin/` | 400 px logo and the 1128 × 191 banner with the brand line. |
 | `podcast/` | Already Qualified cover at 3000 × 3000, in PNG and JPG. |
+| `meeting-backgrounds/` | Zoom and Teams backgrounds, 1920 × 1080 (PNG and JPG): Second Act Advisory and Already Qualified, each in wine and Library Green (#26473B, a background-only colour). |
 | `stationery/` | A4 letterhead PDF (plus its HTML source), and the 600 px email signature PNG. |
 | `brand-guide/` | `index.html` and the 4-page PDF: logo versions, clear space, minimum sizes, colour, type and do's and don'ts. |
 | `source/` | Editable SVGs with live text. You'll need the fonts in `fonts/` installed to see them correctly. |
@@ -51,6 +52,12 @@ Favicon tags:
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 ```
+
+### Meeting backgrounds
+
+- **Zoom:** Settings → Backgrounds & effects → Virtual backgrounds → **+** → choose the PNG. Untick *Mirror my video* if you want to see the text the right way round. Others always see it correctly.
+- **Teams:** in a meeting, go to More → Video effects → Add new, then choose the JPG.
+- The logo sits top left, clear of your head and of the name label both apps show bottom left. Sit centred, roughly an arm's length from the camera.
 
 ## Re-exporting
 

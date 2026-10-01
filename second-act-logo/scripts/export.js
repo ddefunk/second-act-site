@@ -83,6 +83,7 @@ function writeIco(pngFiles, outFile) {
 (async () => {
   console.log('1/7  building SVG masters');
   execFileSync('python3', [P('scripts', 'build_logo.py')], { stdio: 'inherit' });
+  execFileSync('python3', [P('scripts', 'build_backgrounds.py')], { stdio: 'inherit' });
 
   const browser = await chromium.launch();
   const page = await browser.newPage();
@@ -138,6 +139,12 @@ function writeIco(pngFiles, outFile) {
   const pod = read(P('podcast', 'already-qualified-cover-3000.svg'));
   await png(page, pod, P('podcast', 'already-qualified-cover-3000.png'), 3000, { transparent: false });
   await png(page, pod, P('podcast', 'already-qualified-cover-3000.jpg'), 3000, { transparent: false, type: 'jpeg' });
+  for (const f of fs.readdirSync(P('meeting-backgrounds')).filter((f) => f.endsWith('.svg'))) {
+    const svg = read(P('meeting-backgrounds', f));
+    const base = P('meeting-backgrounds', f.replace(/\.svg$/, ''));
+    await png(page, svg, base + '.png', 1920, { transparent: false });
+    await png(page, svg, base + '.jpg', 1920, { transparent: false, type: 'jpeg' });
+  }
   const sig = read(P('stationery', 'email-signature.svg'));
   await png(page, sig, P('stationery', 'email-signature-600.png'), 600);
 
@@ -152,7 +159,7 @@ function writeIco(pngFiles, outFile) {
     if (e.isDirectory()) walk(f);
     else if (/\.(png|jpg)$/.test(e.name)) pngs.push(path.relative(P('logo'), f));
   });
-  ['logo/png', 'favicon', 'social', 'podcast', 'stationery'].forEach((d) => walk(P(d)));
+  ['logo/png', 'favicon', 'social', 'podcast', 'stationery', 'meeting-backgrounds'].forEach((d) => walk(P(d)));
   const cells = pngs.sort().map((f) => {
     const dark = /-white-|footer-lockup-cream/.test(f);
     return `<figure class="${dark ? 'dk' : ''}"><div><img src="${f}"></div><figcaption>${path.basename(f)}</figcaption></figure>`;

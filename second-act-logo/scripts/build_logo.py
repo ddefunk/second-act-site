@@ -205,7 +205,7 @@ def text_art(runs_lines, align="centre"):
     y = 0
     for (runs, gap), lw in zip(runs_lines, widths):
         y += gap
-        x = (W - lw) / 2 if align == "centre" else 0
+        x = {"centre": (W - lw) / 2, "right": W - lw}.get(align, 0)
         for r in runs:
             art.text(r, x, y)
             x += r.width
