@@ -11,7 +11,7 @@ Each workshop has its own address:
 | Shape Your First Offer | workshop.secondactadvisory.co.uk/shape-your-first-offer |
 | Your Second Act Income Plan | workshop.secondactadvisory.co.uk/your-second-act-income-plan |
 
-The bare subdomain shows whichever workshop is set as `FEATURED_WORKSHOP`.
+The bare subdomain shows whichever workshop is set as `FEATURED_WORKSHOP` (currently Shape Your First Offer).
 
 ## Where to edit things
 

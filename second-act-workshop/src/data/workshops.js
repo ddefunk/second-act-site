@@ -16,7 +16,7 @@
 //   { type: 'link', url: 'https://…' } → button goes to Zoom, Stan, Eventbrite etc.
 // ---------------------------------------------------------------
 
-export const FEATURED_WORKSHOP = 'from-experience-to-income'
+export const FEATURED_WORKSHOP = 'shape-your-first-offer'
 
 export const workshops = [
   // ===============================================================
