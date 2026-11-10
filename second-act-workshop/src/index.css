@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-cream font-sans text-charcoal;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-burgundy px-8 py-4 text-sm font-semibold uppercase tracking-wider text-white shadow-sm transition hover:bg-burgundy-dark hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-burgundy focus-visible:ring-offset-2;
+  }
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-semibold uppercase tracking-wider text-burgundy transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cream focus-visible:ring-offset-2 focus-visible:ring-offset-burgundy;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-burgundy;
+  }
+  .section-heading {
+    @apply font-serif text-3xl leading-tight text-charcoal md:text-4xl;
+  }
+  .container-page {
+    @apply mx-auto w-full max-w-5xl px-5 md:px-8;
+  }
+}
