@@ -129,7 +129,7 @@ export const workshops = [
     subheadline:
       'A free live workshop to decide who your offer is for, what it includes, what it helps someone achieve and how you might sensibly price it.',
 
-    startsAt: null,
+    startsAt: '2027-01-09T16:00',
     durationMinutes: 90,
     location: 'Live on Zoom',
     price: 'Free',
